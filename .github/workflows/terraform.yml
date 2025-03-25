@@ -36,12 +36,13 @@ jobs:
 
       - name: setup terraform
         uses: hashicorp/setup-terraform@v3
-
+        with:
+          terraform_version: "1.6.3"
+          
       - name: Terraform init
         id: init
         run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
-        with:
-          terraform_version: "1.6.3"
+        
       
       - name: Terraform format
         id: fmt
